@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<script
+  	src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  	integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  	crossorigin="anonymous"></script>
+</head>
+<body>
+	<h3>Select color</h3>
+
+	<form id="radioButtons">
+		<input id="red" type="radio" value="red" name="pickColor">
+		<label for="red">Red</label>
+
+		<br>
+		
+		<input id="green" type="radio" value="green" name="pickColor">
+		<label for="green">Green</label>
+
+		<br>
+
+		<input id="blue" type="radio" value="blue" name="pickColor">
+		<label for="blue">Blue</label>
+
+	</form>
+
+
+	<br><br>
+
+
+	<select id="dropDown">
+		<option value="red">Red</option>
+		<option value="green">Green</option>
+		<option value="blue">Blue</option>
+	</select>
+
+
+
+<script>
+	var rdbtns = document.getElementsByName('pickColor');
+	
+	rdbtns.forEach(myFunction);
+
+	function myFunction(item, index) {
+	  rdbtns[index].onclick = function(){
+	  	document.querySelector('#dropDown').value = this.value;
+	  } 
+	}
+
+
+    document.querySelector('#dropDown').onchange = function(){
+    	$('input[value="'+this.value+'"]').prop("checked", true);
+    };
+</script>
+
+
+
+</body>
+</html>
